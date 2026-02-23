@@ -143,5 +143,7 @@
     users.users.root.password = "root";
     # Show boot messages
     boot.kernelParams = [ "boot.shell_on_fail" ];
+    # Auto-login for easier testing
+    services.getty.autologinUser = "ashpex";
   };
 }

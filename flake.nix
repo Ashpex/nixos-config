@@ -46,12 +46,13 @@
     ];
   in {
     nixosConfigurations = {
-      # ThinkPad T480 with Hyprland (temporarily testing)
+      # ThinkPad T480 with KDE (for testing)
       t480 = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
-          ./desktop/hyprland.nix      # Testing Hyprland
-          ./users/ashpex/hyprland.nix # HyprPanel config
+          ./desktop/kde.nix           # Use KDE for easier testing
+          # ./desktop/hyprland.nix      # Testing Hyprland
+          # ./users/ashpex/hyprland.nix # HyprPanel config
           ./hosts/t480
         ];
       };
