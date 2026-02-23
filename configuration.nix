@@ -141,9 +141,11 @@
     ];
     users.users.ashpex.password = "testvm";
     users.users.root.password = "root";
-    # Show boot messages
-    boot.kernelParams = [ "boot.shell_on_fail" ];
-    # Auto-login for easier testing
-    services.getty.autologinUser = "ashpex";
+    # Show boot messages and verbose logging
+    boot.kernelParams = [ "boot.shell_on_fail" "systemd.log_level=debug" ];
+    # Make home-manager not block boot
+    systemd.services."home-manager-ashpex" = {
+      wantedBy = pkgs.lib.mkForce [];
+    };
   };
 }
