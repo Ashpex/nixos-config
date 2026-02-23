@@ -1,6 +1,0 @@
-nixos-rebuild \
-	--flake '.#t480' \
-	build-vm
-building the system configuration...
-Done. The virtual machine can be started by running /nix/store/ddqdpmvhd17flxcfxp5yw7amskfdrd1z-nixos-vm/bin/run-nixos-vm
-./result/bin/run-nixos-vm
