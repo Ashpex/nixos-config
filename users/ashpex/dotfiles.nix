@@ -12,9 +12,9 @@
       ".config/kitty/kitty.conf".source = "${dotfiles}/.config/kitty/kitty.conf";
       ".config/nvim".source = "${dotfiles}/.config/nvim";
       ".zshrc".source = "${dotfiles}/.config/zsh/.zshrc";
+      ".config/hypr/hyprland.conf".source = "${dotfiles}/.config/hypr/hyprland.conf";
 
       # Add more dotfiles as needed:
-      # ".config/hypr".source = "${dotfiles}/.config/hypr";
       # ".gitconfig".source = "${dotfiles}/.gitconfig";
     };
   };

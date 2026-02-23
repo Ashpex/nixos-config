@@ -11,7 +11,7 @@ default: apply
 # This is the main command you'll use daily
 apply:
 	@echo "Updating dotfiles to latest commit..."
-	nix flake lock --update-input dotfiles
+	nix --extra-experimental-features 'nix-command flakes' flake lock --update-input dotfiles
 	@echo "Rebuilding with latest dotfiles..."
 	sudo nixos-rebuild \
 		--flake '.#${host}' \
@@ -30,7 +30,7 @@ build-no-update: build
 # Update dotfiles only (doesn't rebuild)
 update-dotfiles:
 	@echo "Updating dotfiles input to latest commit..."
-	nix flake lock --update-input dotfiles
+	nix --extra-experimental-features 'nix-command flakes' flake lock --update-input dotfiles
 	@echo "Updated! Run 'make build' to apply changes."
 
 test:
@@ -49,7 +49,7 @@ diff:
 
 # Update all flake inputs (nixpkgs, home-manager, dotfiles, etc.)
 update:
-	nix flake update
+	nix --extra-experimental-features 'nix-command flakes' flake update
 
 install:
 	# This consumes significant memory on the live USB because dependencies are
