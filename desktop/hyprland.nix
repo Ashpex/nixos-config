@@ -16,7 +16,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         user = "greeter";
       };
     };
@@ -24,8 +24,8 @@
 
   # Useful packages for Hyprland
   environment.systemPackages = with pkgs; [
-    # HyprPanel is configured in home-manager (see users/ashpex/default.nix)
-    rofi-wayland    # App launcher
+    # HyprPanel is configured in home-manager (see users/ashpex/hyprland.nix)
+    rofi            # App launcher (rofi-wayland merged into rofi)
     swww            # Wallpaper
     grim            # Screenshots
     slurp           # Screen area selection

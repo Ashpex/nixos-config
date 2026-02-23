@@ -37,7 +37,7 @@ test:
 	nixos-rebuild \
 		--flake '.#${host}' \
 		build-vm
-	./result/bin/run-${host}-vm
+	./result/bin/run-nixos-vm
 
 diff:
 	nixos-rebuild \
@@ -61,4 +61,5 @@ install:
 		--disk main '${disk}'
 
 clean:
+	rm -f result result-*
 	nix-collect-garbage --delete-old --log-format bar

@@ -19,23 +19,20 @@
     };
 
     # Dotfiles repository
-    # TODO: Change this to your GitHub dotfiles repo URL
-    # For local testing: url = "path:/home/ashpex/dotfiles";
-    # To test without dotfiles: Comment out this input and the import in baseModules
-    # dotfiles = {
-    #   url = "github:yourusername/dotfiles";
-    #   flake = false;
-    # };
+    dotfiles = {
+      url = "github:Ashpex/nixos-dotfiles";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, disko, nixos-hardware, home-manager }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, disko, nixos-hardware, home-manager, dotfiles }:
   let
     baseModules = [
       disko.nixosModules.disko
       ./configuration.nix
       home-manager.nixosModules.home-manager
       ./users/ashpex
-      # (import ./users/ashpex/dotfiles.nix { inherit dotfiles; })  # Temporarily commented for testing
+      (import ./users/ashpex/dotfiles.nix { inherit dotfiles; })
       {
         nixpkgs.overlays = [
           (final: prev: {
@@ -49,11 +46,12 @@
     ];
   in {
     nixosConfigurations = {
-      # ThinkPad T480 with KDE Plasma
+      # ThinkPad T480 with Hyprland (temporarily testing)
       t480 = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
-          ./desktop/kde.nix
+          ./desktop/hyprland.nix      # Testing Hyprland
+          ./users/ashpex/hyprland.nix # HyprPanel config
           ./hosts/t480
         ];
       };

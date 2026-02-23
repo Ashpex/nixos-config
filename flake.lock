@@ -20,6 +20,22 @@
         "type": "github"
       }
     },
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771859979,
+        "narHash": "sha256-Bc1aSDgSIKLiZyALcjwTPZXGyRP/5OLClZdT5iaPrf0=",
+        "owner": "Ashpex",
+        "repo": "nixos-dotfiles",
+        "rev": "fd4378805b78fd2f4f963dd8c983665cb99ca4b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ashpex",
+        "repo": "nixos-dotfiles",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -92,6 +108,7 @@
     "root": {
       "inputs": {
         "disko": "disko",
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

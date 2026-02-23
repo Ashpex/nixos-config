@@ -120,10 +120,10 @@ Dotfiles are managed declaratively via a separate repository as a flake input.
 
 ### Setup
 
-1. Push your dotfiles to GitHub (e.g., `https://github.com/Ashpex/dotfiles`)
+1. Push your dotfiles to GitHub (e.g., `https://github.com/Ashpex/nixos-dotfiles`)
 2. Update `flake.nix` with your repo URL:
 ```nix
-dotfiles.url = "github:Ashpex/dotfiles";
+dotfiles.url = "github:Ashpex/nixos-dotfiles";
 ```
 3. Run `make` to apply
 
@@ -131,7 +131,7 @@ dotfiles.url = "github:Ashpex/dotfiles";
 
 ```bash
 # Edit dotfiles locally
-cd ~/dotfiles
+cd ~/nixos-dotfiles
 vim .zshrc
 git commit -am "Update config"
 git push
@@ -179,7 +179,7 @@ baseModules = [
 Before pushing to GitHub:
 ```nix
 # In flake.nix:
-dotfiles.url = "path:/home/ashpex/dotfiles";
+dotfiles.url = "path:/home/ashpex/nixos-dotfiles";
 ```
 
 ## Configuration Layers
