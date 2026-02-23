@@ -3,7 +3,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix  # Commented out for VM testing
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
