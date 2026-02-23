@@ -147,5 +147,10 @@
     systemd.services."home-manager-ashpex" = {
       wantedBy = pkgs.lib.mkForce [];
     };
+    # Auto-login for VM testing
+    services.greetd.settings.initial_session = {
+      command = "Hyprland";
+      user = "ashpex";
+    };
   };
 }
