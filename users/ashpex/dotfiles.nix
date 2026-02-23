@@ -9,10 +9,13 @@
   home-manager.users.ashpex = {
     # Symlink individual files or directories from your dotfiles repo
     home.file = {
-      ".config/kitty/kitty.conf".source = "${dotfiles}/.config/kitty/kitty.conf";
-      ".config/nvim".source = "${dotfiles}/.config/nvim";
+      # Temporarily test with minimal config
       ".zshrc".source = "${dotfiles}/.config/zsh/.zshrc";
-      ".config/hypr/hyprland.conf".source = "${dotfiles}/.config/hypr/hyprland.conf";
+
+      # Commented out for testing:
+      # ".config/kitty/kitty.conf".source = "${dotfiles}/.config/kitty/kitty.conf";
+      # ".config/nvim".source = "${dotfiles}/.config/nvim";
+      # ".config/hypr/hyprland.conf".source = "${dotfiles}/.config/hypr/hyprland.conf";
 
       # Add more dotfiles as needed:
       # ".gitconfig".source = "${dotfiles}/.gitconfig";
