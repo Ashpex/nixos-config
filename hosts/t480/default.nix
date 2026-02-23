@@ -28,8 +28,10 @@
   # ThinkPad-specific packages
   users.users.ashpex.packages = with pkgs; [
     kdePackages.kate
-    pkgs.claude-code
+    claude-code
+    mpv       # Video player
+    vscode    # Code editor
     # Example: using unstable packages
-    # pkgs.unstable.some-package
+    # unstable.some-package
   ];
 }
