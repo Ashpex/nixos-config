@@ -139,5 +139,6 @@
       "-display gtk,gl=on"
     ];
     users.users.ashpex.password = "testvm";
+    users.users.root.password = "root";
   };
 }
