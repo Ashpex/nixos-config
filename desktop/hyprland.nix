@@ -30,6 +30,8 @@
     grim            # Screenshots
     slurp           # Screen area selection
     wl-clipboard    # Clipboard
+    brightnessctl   # Brightness control
+    playerctl       # Media player control
   ];
 
   # XDG portal for screen sharing
