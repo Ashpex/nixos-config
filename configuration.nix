@@ -137,20 +137,7 @@
     virtualisation.qemu.options = [
       "-device virtio-vga-gl"
       "-display gtk,gl=on"
-      "-serial stdio"  # Show boot messages in terminal
     ];
     users.users.ashpex.password = "testvm";
-    users.users.root.password = "root";
-    # Show boot messages and verbose logging
-    boot.kernelParams = [ "boot.shell_on_fail" "systemd.log_level=debug" ];
-    # Make home-manager not block boot
-    systemd.services."home-manager-ashpex" = {
-      wantedBy = pkgs.lib.mkForce [];
-    };
-    # Auto-login to shell for VM testing (not Hyprland)
-    services.greetd.settings.initial_session = {
-      command = "${pkgs.zsh}/bin/zsh";
-      user = "ashpex";
-    };
   };
 }
