@@ -1,0 +1,53 @@
+# Hyprland environment configuration
+#
+# Note: HyprPanel configuration is in users/ashpex/hyprland.nix
+# Import it in your host's flake.nix when using Hyprland
+{ config, pkgs, ... }:
+
+{
+  # Enable Hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  # Display manager for Hyprland
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
+  # Useful packages for Hyprland
+  environment.systemPackages = with pkgs; [
+    # HyprPanel is configured in home-manager (see users/ashpex/default.nix)
+    rofi-wayland    # App launcher
+    swww            # Wallpaper
+    grim            # Screenshots
+    slurp           # Screen area selection
+    wl-clipboard    # Clipboard
+  ];
+
+  # XDG portal for screen sharing
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+
+  # Enable sound with pipewire
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
+}
