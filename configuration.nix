@@ -137,8 +137,11 @@
     virtualisation.qemu.options = [
       "-device virtio-vga-gl"
       "-display gtk,gl=on"
+      "-serial stdio"  # Show boot messages in terminal
     ];
     users.users.ashpex.password = "testvm";
     users.users.root.password = "root";
+    # Show boot messages
+    boot.kernelParams = [ "boot.shell_on_fail" ];
   };
 }
