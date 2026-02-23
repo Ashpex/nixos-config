@@ -4,11 +4,7 @@
 
 {
   home-manager.users.ashpex = {
-    # HyprPanel - programs.hyprpanel doesn't exist in nixpkgs 25.11
-    # Install manually instead (see desktop/hyprland.nix)
-    # We'll add it to system packages once home-manager works
-
-    # Placeholder config - will add HyprPanel later
+    # Empty for now - we'll add HyprPanel later once home-manager works
     home.packages = [ ];
   };
 }

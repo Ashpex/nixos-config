@@ -147,9 +147,9 @@
     systemd.services."home-manager-ashpex" = {
       wantedBy = pkgs.lib.mkForce [];
     };
-    # Auto-login for VM testing
+    # Auto-login to shell for VM testing (not Hyprland)
     services.greetd.settings.initial_session = {
-      command = "Hyprland";
+      command = "${pkgs.zsh}/bin/zsh";
       user = "ashpex";
     };
   };
