@@ -73,7 +73,7 @@ make clean             # Run garbage collection
 
 ```bash
 nix-shell -p git gnumake neovim disko
-git clone <your-repo-url> nixos-config
+git clone https://github.com/Ashpex/nixos-config
 cd nixos-config
 make install host=t480 disk=/dev/nvme0n1
 ```
@@ -120,10 +120,10 @@ Dotfiles are managed declaratively via a separate repository as a flake input.
 
 ### Setup
 
-1. Push your dotfiles to GitHub
+1. Push your dotfiles to GitHub (e.g., `https://github.com/Ashpex/dotfiles`)
 2. Update `flake.nix` with your repo URL:
 ```nix
-dotfiles.url = "github:yourusername/dotfiles";
+dotfiles.url = "github:Ashpex/dotfiles";
 ```
 3. Run `make` to apply
 

@@ -9,7 +9,7 @@
   nixpkgs.hostPlatform = "x86_64-linux";
 
   # Hostname
-  networking.hostName = "t480";
+  networking.hostName = "nixos";
 
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
