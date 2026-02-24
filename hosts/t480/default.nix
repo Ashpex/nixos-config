@@ -24,7 +24,18 @@
   # Intel CPU microcode updates
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # Filesystems managed by disko (see configuration.nix)
+  # Filesystems configuration
+  fileSystems."/" = {
+    device = "/dev/nvme0n1p2";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/nvme0n1p1";
+    fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" ];
+  };
+
   swapDevices = [ ];
 
   # ThinkPad power management
