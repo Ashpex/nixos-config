@@ -12,9 +12,9 @@
     shell = pkgs.zsh;
     initialPassword = "changeme"; # Change with `passwd` after first login
     packages = with pkgs; [
-      # Add your user-specific packages here
-      # Example: using unstable packages
-      # pkgs.unstable.some-package
+      mpv
+      obsidian
+      vscode
     ];
   };
 

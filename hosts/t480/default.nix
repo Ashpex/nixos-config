@@ -25,12 +25,21 @@
 
   # Filesystems are managed by Disko (see configuration.nix)
 
+  # ThinkPad power management
+  services.tlp = {
+    enable = false;
+    settings = {
+      # Internal battery
+      START_CHARGE_THRESH_BAT0 = 40;
+      STOP_CHARGE_THRESH_BAT0 = 80;
+      # Removable battery
+      START_CHARGE_THRESH_BAT1 = 40;
+      STOP_CHARGE_THRESH_BAT1 = 80;
+    };
+  };
+
   # ThinkPad-specific packages
   users.users.ashpex.packages = with pkgs; [
     claude-code
-    mpv       # Video player
-    vscode    # Code editor
-    # Example: using unstable packages
-    # unstable.some-package
   ];
 }

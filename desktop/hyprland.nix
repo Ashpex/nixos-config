@@ -26,6 +26,7 @@
   # Useful packages for Hyprland
   environment.systemPackages = with pkgs; [
     # HyprPanel is configured in home-manager (see users/ashpex/hyprland.nix)
+    pcmanfm         # File manager
     rofi            # App launcher (rofi-wayland merged into rofi)
     swww            # Wallpaper
     grim            # Screenshots

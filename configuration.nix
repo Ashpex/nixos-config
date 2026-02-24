@@ -92,8 +92,10 @@
   # Common system packages
   environment.systemPackages = with pkgs; [
     curl
+    file
     gh
     gnumake
+    htop
     kitty
     neovim
     tree
