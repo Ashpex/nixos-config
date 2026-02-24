@@ -56,21 +56,21 @@
         ];
       };
 
-      # Example: Another host with Hyprland
-      # desktop = nixpkgs.lib.nixosSystem {
-      #   modules = baseModules ++ [
-      #     ./desktop/hyprland.nix
-      #     ./users/ashpex/hyprland.nix  # HyprPanel config
-      #     ./hosts/desktop
-      #   ];
-      # };
+      # Desktop with Hyprland
+      desktop = nixpkgs.lib.nixosSystem {
+        modules = baseModules ++ [
+          ./desktop/hyprland.nix
+          ./users/ashpex/hyprland.nix
+          ./hosts/desktop
+        ];
+      };
 
-      # Example: Server (no desktop environment)
-      # server = nixpkgs.lib.nixosSystem {
-      #   modules = baseModules ++ [
-      #     ./hosts/server
-      #   ];
-      # };
+      # Server (no desktop environment)
+      server = nixpkgs.lib.nixosSystem {
+        modules = baseModules ++ [
+          ./hosts/server
+        ];
+      };
     };
   };
 }

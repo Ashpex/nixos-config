@@ -10,6 +10,7 @@
       "wheel"        # For sudo
     ];
     shell = pkgs.zsh;
+    initialPassword = "changeme"; # Change with `passwd` after first login
     packages = with pkgs; [
       # Add your user-specific packages here
       # Example: using unstable packages
@@ -33,13 +34,10 @@
       # Dotfiles are managed in users/ashpex/dotfiles.nix
       # See README.md "Dotfiles Management" section for details
 
-      # Add your home-manager configuration here
-      # Example: Git configuration
-      # programs.git = {
-      #   enable = true;
-      #   userName = "Your Name";
-      #   userEmail = "your.email@example.com";
-      # };
+      programs.git = {
+        enable = true;
+        userName = "Ashpex";
+      };
     };
   };
 }

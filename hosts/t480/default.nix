@@ -27,7 +27,6 @@
 
   # ThinkPad-specific packages
   users.users.ashpex.packages = with pkgs; [
-    kdePackages.kate
     claude-code
     mpv       # Video player
     vscode    # Code editor
