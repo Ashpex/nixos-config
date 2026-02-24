@@ -50,7 +50,7 @@
       t480 = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
-          ./desktop/hyprland.nix      # Testing Hyprland
+          ./de/hyprland.nix      # Testing Hyprland
           ./users/ashpex/hyprland.nix # HyprPanel config
           ./hosts/t480
         ];
@@ -59,7 +59,7 @@
       # Desktop with Hyprland
       desktop = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
-          ./desktop/hyprland.nix
+          ./de/hyprland.nix
           ./users/ashpex/hyprland.nix
           ./hosts/desktop
         ];
