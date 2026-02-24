@@ -5,9 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  # Enable Hyprland
+  # Enable Hyprland (using unstable for 0.53.3+)
   programs.hyprland = {
     enable = true;
+    package = pkgs.unstable.hyprland;
     xwayland.enable = true;
   };
 
@@ -37,7 +38,7 @@
   # XDG portal for screen sharing
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ pkgs.unstable.xdg-desktop-portal-hyprland ];
   };
 
   # Enable sound with pipewire
