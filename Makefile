@@ -1,5 +1,5 @@
 .POSIX:
-.PHONY: default apply build build-no-update test diff update update-dotfiles install clean
+.PHONY: default apply build build-no-update test diff update update-dotfiles install clean dotfiles-dev dotfiles-prod dotfiles-push dotfiles-sync dotfiles-test
 
 # Default host is t480
 host ?= t480
@@ -32,6 +32,24 @@ update-dotfiles:
 	@echo "Updating dotfiles input to latest commit..."
 	nix --extra-experimental-features 'nix-command flakes' flake lock --update-input dotfiles
 	@echo "Updated! Run 'make build' to apply changes."
+
+# Dotfiles development workflow
+# Managed by scripts/dotfiles.sh
+
+dotfiles-dev:
+	@./scripts/dotfiles.sh dev
+
+dotfiles-prod:
+	@./scripts/dotfiles.sh prod
+
+dotfiles-push:
+	@./scripts/dotfiles.sh push
+
+dotfiles-sync:
+	@./scripts/dotfiles.sh sync
+
+dotfiles-test:
+	@./scripts/dotfiles.sh test
 
 test:
 	nixos-rebuild \

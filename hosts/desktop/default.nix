@@ -19,10 +19,6 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  # Desktop-specific packages
-  users.users.ashpex.packages = with pkgs; [
-    claude-code
-    mpv
-    vscode
-  ];
+  # Desktop-specific packages (empty - using base user packages)
+  # users.users.ashpex.packages = with pkgs; [ ];
 }

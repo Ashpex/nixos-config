@@ -23,7 +23,19 @@
   # Intel CPU microcode updates
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # Filesystems are managed by Disko (see configuration.nix)
+  # Filesystems configuration
+  fileSystems."/" = {
+    device = "/dev/nvme0n1p2";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/nvme0n1p1";
+    fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" ];
+  };
+
+  swapDevices = [ ];
 
   # ThinkPad power management
   services.tlp = {
@@ -38,8 +50,6 @@
     };
   };
 
-  # ThinkPad-specific packages
-  users.users.ashpex.packages = with pkgs; [
-    claude-code
-  ];
+  # ThinkPad-specific packages (empty - using base user packages)
+  # users.users.ashpex.packages = with pkgs; [ ];
 }
