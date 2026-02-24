@@ -43,7 +43,7 @@ diff:
 	nixos-rebuild \
 		--flake '.#${host}' \
 		build
-	nix store diff-closures \
+	nix --extra-experimental-features 'nix-command' store diff-closures \
 		--allow-symlinked-store \
 		/nix/var/nix/profiles/system ./result
 
