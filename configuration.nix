@@ -6,6 +6,7 @@
     disk = {
       main = {
         type = "disk";
+        device = "/dev/nvme0n1";  # Specify the physical device
         content = {
           type = "gpt";
           partitions = {
