@@ -2,33 +2,54 @@
 { config, pkgs, ... }:
 
 {
-  # Enable X11 windowing system
-  services.xserver.enable = true;
+  services = {
+    # Enable X11 windowing system
+    xserver = {
+      enable = true;
+      # Configure keymap
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
 
-  # Enable KDE Plasma Desktop Environment
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+    # Enable KDE Plasma Desktop Environment
+    displayManager = {
+      sddm = {
+        enable = true;
+      };
+    };
+    desktopManager = {
+      plasma6 = {
+        enable = true;
+      };
+    };
 
-  # Configure keymap
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    # Enable sound with pipewire
+    pulseaudio = {
+      enable = false;
+    };
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse = {
+        enable = true;
+      };
+    };
+
+    # Enable touchpad support
+    libinput = {
+      enable = true;
+    };
   };
-
-  # Enable sound with pipewire
-  services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # Enable touchpad support
-  services.libinput.enable = true;
 
   # Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-  ];
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.fira-code
+    ];
+  };
 }

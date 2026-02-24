@@ -36,7 +36,11 @@
 
       programs.git = {
         enable = true;
-        userName = "Ashpex";
+        settings = {
+          user = {
+            name = "Ashpex";
+          };
+        };
       };
     };
   };
