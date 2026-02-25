@@ -62,6 +62,10 @@
         source = "${dotfiles}/.config/mako";
         force = true;
       };
+      ".config/waybar" = {
+        source = "${dotfiles}/.config/waybar";
+        force = true;
+      };
 
       # Add more dotfiles as needed:
       # ".gitconfig".source = "${dotfiles}/.gitconfig";
