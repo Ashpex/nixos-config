@@ -52,6 +52,10 @@
 
   hardware = {
     enableAllHardware = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   networking = {

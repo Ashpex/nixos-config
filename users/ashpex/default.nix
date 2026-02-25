@@ -13,8 +13,10 @@
     initialPassword = "changeme"; # Change with `passwd` after first login
     packages = with pkgs; [
       claude-code
+      discord
       mpv
       obsidian
+      zathura
     ];
   };
 

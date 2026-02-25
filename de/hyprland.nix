@@ -57,6 +57,9 @@
       xdg-desktop-portal-hyprland # Screen sharing & file dialogs
       hyprpolkitagent # Polkit authentication agent
       hypridle        # Idle daemon
+      imv             # Image viewer
+      xarchiver       # Archive manager
+      blueman         # Bluetooth GUI
     ];
   };
 
