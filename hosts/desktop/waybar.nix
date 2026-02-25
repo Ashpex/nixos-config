@@ -1,4 +1,4 @@
-# Waybar configuration for Desktop
+# Waybar configuration for Desktop (V2.7 style with Osaka Jade)
 { config, pkgs, ... }:
 
 {
@@ -8,68 +8,300 @@
     settings = [{
       layer = "top";
       position = "top";
-      height = 30;
+      height = 10;
+      margin-top = 6;
+      margin-bottom = 0;
+      margin-left = 10;
+      margin-right = 10;
 
-      modules-left = [ "hyprland/workspaces" ];
-      modules-center = [ "clock" ];
-      modules-right = [ "network" "pulseaudio" "tray" ];
+      modules-left = [ "clock" "tray" "idle_inhibitor" "hyprland/workspaces" "mpris" ];
+      modules-center = [ "hyprland/window" ];
+      modules-right = [ "network" "pulseaudio" "memory" "cpu" "custom/notification" "custom/power" ];
+
+      clock = {
+        format = " {:%H:%M}";
+        format-alt = " {:%a %b %d, %Y}";
+        tooltip-format = "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>";
+        calendar = {
+          mode = "month";
+          mode-mon-col = 3;
+          weeks-pos = "right";
+          on-scroll = 1;
+          format = {
+            months = "<span color='#71CEAD'><b>{}</b></span>";
+            days = "<span color='#e6d8ba'><b>{}</b></span>";
+            weeks = "<span color='#549E6A'><b>W{}</b></span>";
+            weekdays = "<span color='#2DD5B7'><b>{}</b></span>";
+            today = "<span color='#FF5345'><b><u>{}</u></b></span>";
+          };
+        };
+        actions = {
+          on-click-right = "mode";
+          on-scroll-up = "shift_up";
+          on-scroll-down = "shift_down";
+        };
+      };
+
+      tray = {
+        icon-size = 12;
+        spacing = 5;
+      };
+
+      idle_inhibitor = {
+        format = "{icon}";
+        format-icons = {
+          activated = "";
+          deactivated = "";
+        };
+        tooltip-format-activated = "Idle inhibitor active";
+        tooltip-format-deactivated = "Idle inhibitor inactive";
+      };
 
       "hyprland/workspaces" = {
-        format = "{name}";
+        format = "{icon}";
+        format-icons = {
+          default = "";
+          active = "";
+        };
         on-click = "activate";
       };
 
-      clock = {
-        format = "{:%H:%M}";
-        format-alt = "{:%a %b %d, %Y}";
-        tooltip-format = "{:%A, %B %d, %Y}";
+      mpris = {
+        format = "{player_icon} {dynamic}";
+        format-paused = "{status_icon} <i>{dynamic}</i>";
+        player-icons = {
+          default = "🎵";
+          spotify = "";
+          firefox = "";
+        };
+        status-icons = {
+          playing = "";
+          paused = "";
+        };
+        dynamic-order = [ "title" "artist" ];
+        dynamic-len = 40;
+        ignored-players = [ ];
+      };
+
+      "hyprland/window" = {
+        format = "{}";
+        separate-outputs = true;
+        max-length = 50;
+        rewrite = {
+          "(.*) — Mozilla Firefox" = "  $1";
+          "(.*) - Chromium" = "  $1";
+          "Spotify" = "  Spotify";
+          "kitty" = "  Terminal";
+        };
       };
 
       network = {
-        format-wifi = "  {essid}";
-        format-ethernet = "  {ipaddr}";
-        format-disconnected = "  Disconnected";
-        tooltip-format = "{ifname}: {ipaddr}/{cidr}";
+        format-wifi = " ";
+        format-ethernet = " ";
+        format-disconnected = "󰤮 ";
+        tooltip-format = "{ifname} via {gwaddr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
+        tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
+        tooltip-format-ethernet = "{ifname}\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
+        tooltip-format-disconnected = "Disconnected";
+        on-click = "nm-connection-editor";
+        interval = 2;
       };
 
       pulseaudio = {
         format = "{icon} {volume}%";
-        format-muted = "  Muted";
+        format-muted = " {volume}%";
         format-icons = {
           default = [ "" "" "" ];
+          headphone = "";
+          headset = "";
         };
         on-click = "pavucontrol";
+        on-click-right = "pavucontrol";
+        scroll-step = 5;
+        smooth-scrolling-threshold = 1;
       };
 
-      tray = {
-        spacing = 10;
+      memory = {
+        format = " {}%";
+        tooltip-format = "RAM: {used:0.1f}G / {total:0.1f}G ({percentage}%)\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G";
+        on-click = "kitty -e btop";
+        interval = 2;
+      };
+
+      cpu = {
+        format = " {usage}%";
+        tooltip = true;
+        on-click = "kitty -e btop";
+        interval = 2;
+      };
+
+      "custom/notification" = {
+        exec = "makoctl mode | grep -q 'do-not-disturb' && echo ' ' || echo ' '";
+        on-click = "makoctl mode -t do-not-disturb";
+        interval = 1;
+        tooltip = false;
+      };
+
+      "custom/power" = {
+        format = " ";
+        on-click = "wlogout";
+        tooltip = false;
       };
     }];
 
     style = ''
       * {
         font-family: "FiraCode Nerd Font", monospace;
-        font-size: 14px;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+        border-radius: 0;
+        min-height: 0;
       }
 
       window#waybar {
-        background-color: rgba(30, 30, 46, 0.9);
-        color: #cdd6f4;
+        background-color: transparent;
+        color: #e6d8ba;
+        transition: background-color 0.5s;
+      }
+
+      window#waybar.empty #window {
+        background-color: transparent;
+      }
+
+      /* General module styling - V2.7 approach */
+      #clock,
+      #tray,
+      #idle_inhibitor,
+      #workspaces,
+      #mpris,
+      #window,
+      #network,
+      #pulseaudio,
+      #memory,
+      #cpu,
+      #custom-notification,
+      #custom-power {
+        background-color: rgba(17, 28, 24, 0.85);
+        padding: 0px 8px;
+        margin: 2px 1px;
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.116) 2 2, rgba(0, 0, 0, 0.239) 1 1;
+      }
+
+      /* Hover effects */
+      #clock:hover,
+      #tray:hover,
+      #idle_inhibitor:hover,
+      #network:hover,
+      #pulseaudio:hover,
+      #memory:hover,
+      #cpu:hover,
+      #custom-notification:hover,
+      #custom-power:hover {
+        background-color: #e6d8ba;
+        color: #111C18;
+        opacity: 0.9;
+      }
+
+      /* Workspaces */
+      #workspaces {
+        padding: 0px;
       }
 
       #workspaces button {
-        padding: 0 8px;
-        color: #cdd6f4;
-        border-bottom: 2px solid transparent;
+        padding: 0px 8px;
+        background-color: transparent;
+        color: #e6d8ba;
+        border-radius: 2px;
+      }
+
+      #workspaces button:hover {
+        background-color: #e6d8ba;
+        color: #111C18;
       }
 
       #workspaces button.active {
-        color: #89b4fa;
-        border-bottom: 2px solid #89b4fa;
+        background-color: #e6d8ba;
+        color: #111C18;
       }
 
-      #clock, #network, #pulseaudio, #tray {
-        padding: 0 10px;
+      /* MPRIS with blink animation */
+      #mpris.playing {
+        animation-name: blink;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      #mpris.paused {
+        opacity: 0.6;
+      }
+
+      /* Window title */
+      #window {
+        color: #C1C497;
+      }
+
+      /* Individual module colors */
+      #clock {
+        color: #e6d8ba;
+      }
+
+      #idle_inhibitor.activated {
+        color: #71CEAD;
+      }
+
+      #network {
+        color: #2DD5B7;
+      }
+
+      #network.disconnected {
+        color: #FF5345;
+      }
+
+      #pulseaudio {
+        color: #ACD4CF;
+      }
+
+      #pulseaudio.muted {
+        opacity: 0.5;
+      }
+
+      #memory {
+        color: #549E6A;
+      }
+
+      #cpu {
+        color: #71CEAD;
+      }
+
+      #custom-notification {
+        color: #D7C995;
+      }
+
+      #custom-power {
+        color: #FF5345;
+      }
+
+      /* Animations */
+      @keyframes blink {
+        to {
+          color: #71CEAD;
+        }
+      }
+
+      /* Tooltip styling */
+      tooltip {
+        background: rgba(17, 28, 24, 1);
+        border: 1px solid rgba(113, 206, 173, 0.3);
+        border-radius: 4px;
+        color: #e6d8ba;
+      }
+
+      tooltip label {
+        color: #e6d8ba;
       }
     '';
   };
