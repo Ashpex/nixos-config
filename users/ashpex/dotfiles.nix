@@ -50,6 +50,14 @@
         source = "${dotfiles}/.config/nvim";
         force = true;
       };
+      ".config/rofi" = {
+        source = "${dotfiles}/.config/rofi";
+        force = true;
+      };
+      ".config/wlogout" = {
+        source = "${dotfiles}/.config/wlogout";
+        force = true;
+      };
 
       # Add more dotfiles as needed:
       # ".gitconfig".source = "${dotfiles}/.gitconfig";

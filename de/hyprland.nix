@@ -60,6 +60,7 @@
       imv             # Image viewer
       xarchiver       # Archive manager
       blueman         # Bluetooth GUI
+      wlogout         # Power menu
     ];
   };
 
