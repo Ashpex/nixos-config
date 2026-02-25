@@ -55,12 +55,12 @@
         ];
       };
 
-      # Desktop with Hyprland (i5-13600KF + RX 6700 XT)
+      # Desktop with Cinnamon (i5-13600KF + RX 6700 XT)
       desktop = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-gpu-amd
-          ./de/hyprland.nix
+          ./de/cinnamon.nix
           ./hosts/desktop
         ];
       };

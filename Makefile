@@ -55,7 +55,7 @@ test:
 	nixos-rebuild \
 		--flake '.#${host}' \
 		build-vm
-	./result/bin/run-nixos-vm
+	./result/bin/run-*-vm
 
 diff:
 	nixos-rebuild \

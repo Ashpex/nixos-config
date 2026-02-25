@@ -2,40 +2,6 @@
 { config, pkgs, ... }:
 
 {
-  disko.devices = {
-    disk = {
-      main = {
-        type = "disk";
-        device = "/dev/nvme0n1";
-        content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              size = "1G";
-              type = "EF00";
-              label = "EFI";  # Match existing partition label
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
-              };
-            };
-            root = {
-              size = "100%";
-              label = "root";  # Match existing partition label
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
-              };
-            };
-          };
-        };
-      };
-    };
-  };
-
   boot = {
     loader = {
       systemd-boot = {
@@ -183,8 +149,8 @@
       virtualisation = {
         qemu = {
           options = [
-            "-device virtio-vga-gl"
-            "-display gtk,gl=on"
+            "-vga virtio"
+            "-display gtk"
           ];
         };
       };

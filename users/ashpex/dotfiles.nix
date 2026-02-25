@@ -66,6 +66,10 @@
         source = "${dotfiles}/.config/waybar";
         force = true;
       };
+      "wallpapers" = {
+        source = "${dotfiles}/wallpapers";
+        force = true;
+      };
 
       # Add more dotfiles as needed:
       # ".gitconfig".source = "${dotfiles}/.gitconfig";

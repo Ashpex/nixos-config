@@ -4,6 +4,7 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ./disko.nix
     ./waybar.nix
   ];
 
@@ -15,9 +16,9 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # TODO: Hardware-specific settings (run nixos-generate-config and copy relevant bits)
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "usbhid" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   # Desktop-specific packages (empty - using base user packages)
