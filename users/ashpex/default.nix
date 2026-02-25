@@ -59,6 +59,13 @@
       # Dotfiles are managed in users/ashpex/dotfiles.nix
       # See README.md "Dotfiles Management" section for details
 
+      i18n.inputMethod = {
+        enabled = "fcitx5";
+        fcitx5.addons = with pkgs; [
+          fcitx5-bamboo
+        ];
+      };
+
       programs.git = {
         enable = true;
         settings = {
