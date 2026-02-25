@@ -19,8 +19,8 @@
       modules-right = [ "network" "pulseaudio" "memory" "cpu" "battery" "custom/notification" "custom/power" ];
 
       clock = {
-        format = "󰥔 {:%H:%M}";
-        format-alt = "󰃭 {:%a %b %d, %Y}";
+        format = " {:%H:%M}";
+        format-alt = " {:%a %b %d, %Y}";
         tooltip-format = "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>";
         calendar = {
           mode = "month";
@@ -96,9 +96,9 @@
       };
 
       network = {
-        format-wifi = "  {signalStrength}%";
-        format-ethernet = "  {ipaddr}";
-        format-disconnected = "󰤮  Disconnected";
+        format-wifi = " {signalStrength}%";
+        format-ethernet = " {ipaddr}";
+        format-disconnected = " Disconnected";
         tooltip-format = "{ifname} via {gwaddr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
         tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
         tooltip-format-ethernet = "{ifname}\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
@@ -109,11 +109,11 @@
 
       pulseaudio = {
         format = "{icon} {volume}%";
-        format-muted = "󰝟 {volume}%";
+        format-muted = " {volume}%";
         format-icons = {
-          default = [ "󰕿" "󰖀" "󰕾" ];
-          headphone = "󰋋";
-          headset = "󰋎";
+          default = [ "" "" "" ];
+          headphone = "";
+          headset = "";
         };
         on-click = "pavucontrol";
         on-click-right = "pavucontrol";
@@ -148,14 +148,14 @@
       };
 
       "custom/notification" = {
-        exec = "makoctl mode | grep -q 'do-not-disturb' && echo ' ' || echo ' '";
+        exec = "makoctl mode | grep -q 'do-not-disturb' && echo '' || echo ''";
         on-click = "makoctl mode -t do-not-disturb";
         interval = 1;
         tooltip = false;
       };
 
       "custom/power" = {
-        format = " ";
+        format = "";
         on-click = "wlogout";
         tooltip = false;
       };

@@ -14,8 +14,12 @@
     packages = with pkgs; [
       claude-code
       discord
+      gopls           # Go LSP
       mpv
+      nil             # Nix LSP
+      nixpkgs-fmt     # Nix formatter (used by nil)
       obsidian
+      rust-analyzer   # Rust LSP
       zathura
     ];
   };
