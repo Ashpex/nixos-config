@@ -1,7 +1,4 @@
 # Hyprland environment configuration
-#
-# Note: HyprPanel configuration is in users/ashpex/hyprland.nix
-# Import it in your host's flake.nix when using Hyprland
 { config, pkgs, ... }:
 
 {
@@ -44,7 +41,9 @@
   # Useful packages for Hyprland
   environment = {
     systemPackages = with pkgs; [
-      # HyprPanel is configured in home-manager (see users/ashpex/hyprland.nix)
+      waybar          # Status bar (per-host config in hosts/*/waybar.nix)
+      mako            # Notification daemon
+      hyprlock        # Lock screen
       pcmanfm         # File manager
       rofi            # App launcher (rofi-wayland merged into rofi)
       swww            # Wallpaper
@@ -53,6 +52,9 @@
       wl-clipboard    # Clipboard
       brightnessctl   # Brightness control
       playerctl       # Media player control
+      pavucontrol     # Audio control GUI
+      networkmanagerapplet # Network tray icon
+      xdg-desktop-portal-hyprland # Screen sharing & file dialogs
     ];
   };
 

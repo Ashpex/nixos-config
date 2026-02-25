@@ -17,6 +17,10 @@
         source = "${dotfiles}/.config/hypr/hyprland.conf";
         force = true;
       };
+      ".config/hypr/hyprlock.conf" = {
+        source = "${dotfiles}/.config/hypr/hyprlock.conf";
+        force = true;
+      };
       ".config/kitty/kitty.conf" = {
         source = "${dotfiles}/.config/kitty/kitty.conf";
         force = true;

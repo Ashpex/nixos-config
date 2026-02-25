@@ -26,6 +26,12 @@
         stateVersion = "25.11";
         username = "ashpex";
         homeDirectory = "/home/ashpex";
+        pointerCursor = {
+          name = "Bibata-Modern-Classic";
+          package = pkgs.bibata-cursors;
+          size = 24;
+          gtk.enable = true;
+        };
       };
 
       # Let Home Manager install and manage itself
