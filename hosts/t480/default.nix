@@ -32,10 +32,10 @@
     enable = false;
     settings = {
       # Internal battery
-      START_CHARGE_THRESH_BAT0 = 40;
+      START_CHARGE_THRESH_BAT0 = 60;
       STOP_CHARGE_THRESH_BAT0 = 80;
       # Removable battery
-      START_CHARGE_THRESH_BAT1 = 40;
+      START_CHARGE_THRESH_BAT1 = 60;
       STOP_CHARGE_THRESH_BAT1 = 80;
     };
   };

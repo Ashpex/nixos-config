@@ -34,6 +34,23 @@
         };
       };
 
+      # GTK theme
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Colloid-Green-Dark-Catppuccin";
+          package = pkgs.colloid-gtk-theme.override {
+            colorVariants = [ "dark" ];
+            themeVariants = [ "green" ];
+            tweaks = [ "catppuccin" ];
+          };
+        };
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
+      };
+
       # Let Home Manager install and manage itself
       programs.home-manager.enable = true;
 
@@ -45,6 +62,7 @@
         settings = {
           user = {
             name = "Ashpex";
+            email = "ashpex@pm.me"
           };
         };
       };

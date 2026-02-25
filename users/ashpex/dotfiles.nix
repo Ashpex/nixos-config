@@ -7,18 +7,39 @@
 
 {
   home-manager.users.ashpex = {
+    programs.zsh = {
+      enable = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      history = {
+        size = 10000;
+        save = 10000;
+        share = true;
+      };
+      shellAliases = {
+        ls = "ls --color=auto";
+        ll = "ls -lah";
+        grep = "grep --color=auto";
+      };
+      oh-my-zsh = {
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [ "git" "sudo" "dirhistory" ];
+      };
+    };
+
     # Symlink individual files or directories from your dotfiles repo
     home.file = {
-      ".zshrc" = {
-        source = "${dotfiles}/.config/zsh/.zshrc";
-        force = true;  # Overwrite existing files
-      };
       ".config/hypr/hyprland.conf" = {
         source = "${dotfiles}/.config/hypr/hyprland.conf";
         force = true;
       };
       ".config/hypr/hyprlock.conf" = {
         source = "${dotfiles}/.config/hypr/hyprlock.conf";
+        force = true;
+      };
+      ".config/hypr/hypridle.conf" = {
+        source = "${dotfiles}/.config/hypr/hypridle.conf";
         force = true;
       };
       ".config/kitty/kitty.conf" = {
