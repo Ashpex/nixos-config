@@ -8,7 +8,7 @@
     settings = [{
       layer = "top";
       position = "top";
-      height = 10;
+      height = 32;
       margin-top = 6;
       margin-bottom = 0;
       margin-left = 10;
@@ -19,8 +19,8 @@
       modules-right = [ "network" "pulseaudio" "memory" "cpu" "custom/notification" "custom/power" ];
 
       clock = {
-        format = " {:%H:%M}";
-        format-alt = " {:%a %b %d, %Y}";
+        format = "󰥔 {:%H:%M}";
+        format-alt = "󰃭 {:%a %b %d, %Y}";
         tooltip-format = "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>";
         calendar = {
           mode = "month";
@@ -96,9 +96,9 @@
       };
 
       network = {
-        format-wifi = " ";
-        format-ethernet = " ";
-        format-disconnected = "󰤮 ";
+        format-wifi = "  {signalStrength}%";
+        format-ethernet = "  {ipaddr}";
+        format-disconnected = "󰤮  Disconnected";
         tooltip-format = "{ifname} via {gwaddr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
         tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
         tooltip-format-ethernet = "{ifname}\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}";
@@ -109,11 +109,11 @@
 
       pulseaudio = {
         format = "{icon} {volume}%";
-        format-muted = " {volume}%";
+        format-muted = "󰝟 {volume}%";
         format-icons = {
-          default = [ "" "" "" ];
-          headphone = "";
-          headset = "";
+          default = [ "󰕿" "󰖀" "󰕾" ];
+          headphone = "󰋋";
+          headset = "󰋎";
         };
         on-click = "pavucontrol";
         on-click-right = "pavucontrol";
