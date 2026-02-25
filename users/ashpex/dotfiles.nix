@@ -58,6 +58,10 @@
         source = "${dotfiles}/.config/wlogout";
         force = true;
       };
+      ".config/mako" = {
+        source = "${dotfiles}/.config/mako";
+        force = true;
+      };
 
       # Add more dotfiles as needed:
       # ".gitconfig".source = "${dotfiles}/.gitconfig";
