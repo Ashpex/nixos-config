@@ -71,7 +71,7 @@
         settings = {
           user = {
             name = "Ashpex";
-            email = "ashpex@pm.me"
+            email = "ashpex@pm.me";
           };
         };
       };

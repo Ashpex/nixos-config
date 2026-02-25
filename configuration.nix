@@ -6,16 +6,14 @@
     disk = {
       main = {
         type = "disk";
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
-            boot = {
-              size = "1M";
-              type = "EF02";
-            };
             ESP = {
               size = "1G";
               type = "EF00";
+              label = "EFI";  # Match existing partition label
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -25,6 +23,7 @@
             };
             root = {
               size = "100%";
+              label = "root";  # Match existing partition label
               content = {
                 type = "filesystem";
                 format = "ext4";
