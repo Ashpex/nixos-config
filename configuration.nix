@@ -49,8 +49,6 @@
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
       LC_MEASUREMENT = "vi_VN";
-      LC_NUMERIC = "vi_VN";
-      LC_TIME = "vi_VN";
     };
   };
 

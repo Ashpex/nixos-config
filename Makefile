@@ -39,7 +39,7 @@ dotfiles-sync:
 dotfiles-test:
 	@./scripts/dotfiles.sh test
 
-test:
+test: update-dotfiles
 	nixos-rebuild \
 		--flake '.#$(host)' \
 		build-vm
