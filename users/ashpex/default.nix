@@ -15,6 +15,8 @@
       claude-code
       discord
       gopls           # Go LSP
+      keepassxc
+      megasync
       mpv
       nil             # Nix LSP
       nixpkgs-fmt     # Nix formatter (used by nil)
