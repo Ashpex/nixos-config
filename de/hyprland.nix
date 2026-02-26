@@ -42,6 +42,7 @@
   # Useful packages for Hyprland
   environment = {
     systemPackages = with pkgs; [
+      unstable.noctalia-shell # Desktop shell (Quickshell-based)
       waybar          # Status bar
       mako            # Notification daemon
       hyprlock        # Lock screen
@@ -77,6 +78,29 @@
 
   # GTK theme for Hyprland
   home-manager.users.ashpex = {
+    # Start Noctalia Shell via systemd (spawn-at-startup lacks PATH in systemd sessions)
+    systemd = {
+      user = {
+        services = {
+          noctalia-shell = {
+            Unit = {
+              Description = "Noctalia Shell";
+              After = [ "graphical-session.target" ];
+              PartOf = [ "graphical-session.target" ];
+            };
+            Service = {
+              ExecStart = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell";
+              Restart = "on-failure";
+              RestartSec = 2;
+            };
+            Install = {
+              WantedBy = [ "graphical-session.target" ];
+            };
+          };
+        };
+      };
+    };
+
     home.pointerCursor = {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
