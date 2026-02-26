@@ -51,7 +51,7 @@
       t480 = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
-          ./de/hyprland.nix
+          ./de/cinnamon.nix
           ./hosts/t480
         ];
       };
