@@ -46,16 +46,16 @@
     ];
   in {
     nixosConfigurations = {
-      # ThinkPad T480 with Hyprland
+      # ThinkPad T480
       t480 = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
-          ./de/hyprland.nix
+          ./de/cinnamon.nix
           ./hosts/t480
         ];
       };
 
-      # Desktop with Cinnamon (i5-13600KF + RX 6700 XT)
+      # Desktop (i5-13600KF + RX 6700 XT)
       desktop = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           nixos-hardware.nixosModules.common-cpu-intel
@@ -65,7 +65,7 @@
         ];
       };
 
-      # Server (no desktop environment)
+      # Server
       server = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           ./hosts/server

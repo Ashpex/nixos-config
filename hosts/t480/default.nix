@@ -4,7 +4,6 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./disko.nix
     ./waybar.nix
   ];
 
@@ -25,7 +24,18 @@
   # Intel CPU microcode updates
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # Filesystems managed by disko (see configuration.nix)
+  # Filesystem declarations (for already-installed system)
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/343add33-6f4c-4688-b956-77391d2939e6";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/A5D8-42E9";
+    fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" ];
+  };
+
   swapDevices = [ ];
 
   # ThinkPad power management
