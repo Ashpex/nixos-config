@@ -60,7 +60,7 @@
         modules = baseModules ++ [
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-gpu-amd
-          ./de/cinnamon.nix
+          ./de/hyprland.nix
           ./hosts/desktop
         ];
       };
