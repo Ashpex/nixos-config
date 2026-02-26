@@ -7,7 +7,6 @@
       enable = true;
       package = pkgs.unstable.niri;
     };
-    uwsm.enable = true;
   };
 
   services = {
@@ -16,7 +15,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd \"uwsm start -- niri\"";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
           user = "greeter";
         };
       };
