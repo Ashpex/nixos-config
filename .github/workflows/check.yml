@@ -1,0 +1,22 @@
+name: Check NixOS configs
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Evaluate t480
+        run: nix eval .#nixosConfigurations.t480.config.system.build.toplevel.drvPath
+
+      - name: Evaluate desktop
+        run: nix eval .#nixosConfigurations.desktop.config.system.build.toplevel.drvPath
