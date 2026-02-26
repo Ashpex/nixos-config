@@ -32,9 +32,9 @@
     };
   };
 
-  # Seat management — required for niri --session to access DRI devices
-  services.seatd.enable = true;
-  users.users.ashpex.extraGroups = [ "seat" ];
+  # Ensure greetd creates a proper logind session so systemd --user starts
+  # before niri-session calls systemctl --user import-environment
+  security.pam.services.greetd.startSession = true;
 
   # Required by Noctalia for wifi, bluetooth, power-profile, and battery features
   networking.networkmanager.enable = true;
