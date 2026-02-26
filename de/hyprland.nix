@@ -42,7 +42,7 @@
   # Useful packages for Hyprland
   environment = {
     systemPackages = with pkgs; [
-      waybar          # Status bar (per-host config in hosts/*/waybar.nix)
+      waybar          # Status bar
       mako            # Notification daemon
       hyprlock        # Lock screen
       pcmanfm         # File manager
@@ -71,6 +71,9 @@
       enable = true;
     };
   };
+
+  # Waybar (config managed in dotfiles)
+  home-manager.users.ashpex.programs.waybar.enable = true;
 
   # GTK theme for Hyprland
   home-manager.users.ashpex = {
