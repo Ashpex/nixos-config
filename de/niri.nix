@@ -14,7 +14,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd niri-session";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri-session";
           user = "greeter";
         };
       };
@@ -63,10 +63,33 @@
     ];
   };
 
-  # GTK theme
   home-manager = {
     users = {
       ashpex = {
+        # Start Noctalia Shell via systemd (spawn-at-startup lacks PATH in systemd sessions)
+        systemd = {
+          user = {
+            services = {
+              noctalia-shell = {
+                Unit = {
+                  Description = "Noctalia Shell";
+                  After = [ "graphical-session.target" ];
+                  PartOf = [ "graphical-session.target" ];
+                };
+                Service = {
+                  ExecStart = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell";
+                  Restart = "on-failure";
+                  RestartSec = 2;
+                };
+                Install = {
+                  WantedBy = [ "graphical-session.target" ];
+                };
+              };
+            };
+          };
+        };
+
+        # GTK theme
         home = {
           pointerCursor = {
             name = "Bibata-Modern-Classic";
