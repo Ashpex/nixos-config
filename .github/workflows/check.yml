@@ -20,3 +20,4 @@ jobs:
 
       - name: Evaluate desktop
         run: nix eval .#nixosConfigurations.desktop.config.system.build.toplevel.drvPath
+# test
