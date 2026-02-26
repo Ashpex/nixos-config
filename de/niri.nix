@@ -42,6 +42,10 @@
     };
   };
 
+  # Seat management — required for niri --session to access DRI devices
+  services.seatd.enable = true;
+  users.users.ashpex.extraGroups = [ "seat" ];
+
   # Required by Noctalia for wifi, bluetooth, power-profile, and battery features
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
