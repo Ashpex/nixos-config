@@ -7,14 +7,7 @@
       enable = true;
       package = pkgs.unstable.niri;
     };
-    uwsm = {
-      enable = true;
-      waylandCompositors.niri = {
-        prettyName = "Niri";
-        comment = "Niri compositor managed by UWSM";
-        binPath = "/run/current-system/sw/bin/niri";
-      };
-    };
+    uwsm.enable = true;
   };
 
   services = {
