@@ -31,9 +31,9 @@
       };
     };
 
-    # Required by Noctalia
+    # Required by Noctalia (but conflicts with TLP, so use mkDefault)
     power-profiles-daemon = {
-      enable = true;
+      enable = pkgs.lib.mkDefault true;
     };
     upower = {
       enable = true;
