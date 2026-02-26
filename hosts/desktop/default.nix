@@ -5,7 +5,6 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./disko.nix
-    ./waybar.nix
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
