@@ -51,6 +51,9 @@
     };
   };
 
+  # Disable power-profiles-daemon (conflicts with TLP)
+  services.power-profiles-daemon.enable = false;
+
   # ThinkPad-specific packages (empty - using base user packages)
   # users.users.ashpex.packages = with pkgs; [ ];
 }
