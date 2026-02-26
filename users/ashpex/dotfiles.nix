@@ -66,6 +66,10 @@
         source = "${dotfiles}/.config/waybar";
         force = true;
       };
+      ".config/niri/config.kdl" = {
+        source = "${dotfiles}/.config/niri/config.kdl";
+        force = true;
+      };
       "wallpapers" = {
         source = "${dotfiles}/wallpapers";
         force = true;

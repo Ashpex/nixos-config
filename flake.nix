@@ -23,6 +23,7 @@
       url = "github:Ashpex/nixos-dotfiles";
       flake = false;
     };
+
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, disko, nixos-hardware, home-manager, dotfiles }:
@@ -60,7 +61,7 @@
         modules = baseModules ++ [
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-gpu-amd
-          ./de/hyprland.nix
+          ./de/niri.nix
           ./hosts/desktop
         ];
       };
