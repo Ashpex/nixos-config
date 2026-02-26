@@ -40,7 +40,7 @@
 
   # ThinkPad power management
   services.tlp = {
-    enable = false;
+    enable = true;
     settings = {
       # Internal battery
       START_CHARGE_THRESH_BAT0 = 60;
