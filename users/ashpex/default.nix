@@ -27,6 +27,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "backup";
     users.ashpex = {
       home = {
         stateVersion = "25.11";
