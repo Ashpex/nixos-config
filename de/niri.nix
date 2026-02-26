@@ -2,19 +2,9 @@
 { config, pkgs, ... }:
 
 {
-  programs = {
-    niri = {
-      enable = true;
-      package = pkgs.unstable.niri;
-    };
-    uwsm = {
-      enable = true;
-      waylandCompositors.niri = {
-        prettyName = "Niri";
-        comment = "Niri compositor managed by UWSM";
-        binPath = "${pkgs.unstable.niri}/bin/niri";
-      };
-    };
+  programs.niri = {
+    enable = true;
+    package = pkgs.unstable.niri;
   };
 
   services = {
@@ -23,7 +13,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd \"uwsm start niri.desktop\"";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
           user = "greeter";
         };
       };
