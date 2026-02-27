@@ -18,6 +18,5 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  # Desktop-specific packages (empty - using base user packages)
-  # users.users.ashpex.packages = with pkgs; [ ];
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
