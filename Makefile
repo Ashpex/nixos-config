@@ -1,5 +1,5 @@
 .POSIX:
-.PHONY: default apply build build-no-update test diff update update-dotfiles install clean dotfiles-dev dotfiles-prod dotfiles-push dotfiles-sync dotfiles-test
+.PHONY: default apply build test diff update dotfiles-update install clean dotfiles-detach dotfiles-restore
 
 # Default host is t480
 host ?= t480
@@ -7,7 +7,7 @@ host ?= t480
 default: apply
 
 # Apply: Update dotfiles to latest commit, then rebuild
-apply: update-dotfiles build
+apply: dotfiles-update build
 
 # Build: Rebuild without updating dotfiles (uses locked version)
 build:
@@ -16,7 +16,7 @@ build:
 		switch
 
 # Update dotfiles only (doesn't rebuild)
-update-dotfiles:
+dotfiles-update:
 	@echo "Updating dotfiles input to latest commit..."
 	nix --extra-experimental-features 'nix-command flakes' flake lock --update-input dotfiles
 	@echo "Updated! Run 'make build' or 'make apply' to rebuild."
@@ -24,22 +24,13 @@ update-dotfiles:
 # Dotfiles development workflow
 # Managed by scripts/dotfiles.sh
 
-dotfiles-dev:
-	@./scripts/dotfiles.sh dev
+dotfiles-detach:
+	@./scripts/dotfiles.sh detach $(file)
 
-dotfiles-prod:
-	@./scripts/dotfiles.sh prod
+dotfiles-restore:
+	@./scripts/dotfiles.sh restore $(file)
 
-dotfiles-push:
-	@./scripts/dotfiles.sh push
-
-dotfiles-sync:
-	@./scripts/dotfiles.sh sync
-
-dotfiles-test:
-	@./scripts/dotfiles.sh test
-
-test: update-dotfiles
+test: dotfiles-update
 	nixos-rebuild \
 		--flake '.#$(host)' \
 		build-vm
