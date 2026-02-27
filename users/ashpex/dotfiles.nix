@@ -1,7 +1,4 @@
 # Declarative dotfiles management with Nix flakes
-#
-# Your dotfiles repo is a flake input, version-locked in flake.lock
-# To update dotfiles: `make update` then `make`
 
 { dotfiles, ... }:
 
@@ -75,8 +72,6 @@
         force = true;
       };
 
-      # Add more dotfiles as needed:
-      # ".gitconfig".source = "${dotfiles}/.gitconfig";
     };
   };
 }

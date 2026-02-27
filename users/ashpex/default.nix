@@ -17,12 +17,10 @@
       gopls           # Go LSP
       keepassxc
       megasync
-      mpv
       nil             # Nix LSP
       nixpkgs-fmt     # Nix formatter (used by nil)
       obsidian
       rust-analyzer   # Rust LSP
-      zathura
     ];
   };
 
@@ -60,6 +58,13 @@
           };
         };
       };
+
+      gtk.font = {
+        name = "Fira Sans";
+        size = 11;
+      };
+
+      programs.mpv.enable = true;
     };
   };
 }

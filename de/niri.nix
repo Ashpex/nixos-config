@@ -20,35 +20,11 @@
       };
     };
 
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse = {
-        enable = true;
-      };
-    };
-
     # Required by Noctalia (but conflicts with TLP, so use mkDefault)
     power-profiles-daemon = {
       enable = pkgs.lib.mkDefault true;
     };
     upower = {
-      enable = true;
-    };
-  };
-
-  # Required by Noctalia
-  networking = {
-    networkmanager = {
-      enable = true;
-    };
-  };
-
-  hardware = {
-    bluetooth = {
       enable = true;
     };
   };
@@ -119,13 +95,4 @@
     };
   };
 
-  fonts = {
-    packages = with pkgs; [
-      nerd-fonts.fira-code
-      nerd-fonts.symbols-only
-      font-awesome
-      noto-fonts
-      noto-fonts-cjk-sans
-    ];
-  };
 }

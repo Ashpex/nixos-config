@@ -26,8 +26,6 @@
     };
   };
 
-  # Server-specific packages
-  users.users.ashpex.packages = with pkgs; [
-    htop
-  ];
+  # No audio needed on server
+  services.pipewire.enable = lib.mkForce false;
 }

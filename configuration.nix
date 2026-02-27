@@ -74,7 +74,6 @@
     };
   };
 
-  # Common system packages
   environment = {
     systemPackages = with pkgs; [
       curl
@@ -82,32 +81,46 @@
       file
       gh
       gnumake
-      htop
+      btop
       kitty
-      neovim
       tree
       unzip
       wget
     ];
   };
 
-  # Common programs
   programs = {
     firefox = {
       enable = true;
+      policies = {
+        DisableTelemetry = true;
+        DisablePocket = true;
+      };
     };
     git = {
       enable = true;
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
     };
     zsh = {
       enable = true;
     };
   };
 
-  # Common services
   services = {
-    dbus = {
+    pipewire = {
       enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse = {
+        enable = true;
+      };
     };
     printing = {
       enable = true;
@@ -115,6 +128,15 @@
     tailscale = {
       enable = true;
     };
+  };
+
+  fonts = {
+    packages = with pkgs; [
+      fira
+      nerd-fonts.jetbrains-mono
+      noto-fonts
+      noto-fonts-cjk-sans
+    ];
   };
 
   security = {
