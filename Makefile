@@ -8,32 +8,21 @@ default: build
 
 # System
 build:
-	sudo nixos-rebuild \
-		--flake '.#$(host)' \
-		switch
+	sudo nixos-rebuild --flake '.#$(host)' switch
 
 update:
 	nix --extra-experimental-features 'nix-command flakes' flake update
 
 diff:
-	nixos-rebuild \
-		--flake '.#$(host)' \
-		build
-	nix --extra-experimental-features 'nix-command' store diff-closures \
-		--allow-symlinked-store \
-		/nix/var/nix/profiles/system ./result
+	nixos-rebuild --flake '.#$(host)' build
+	nix --extra-experimental-features 'nix-command' store diff-closures --allow-symlinked-store /nix/var/nix/profiles/system ./result
 
 test: dotfiles-update
-	nixos-rebuild \
-		--flake '.#$(host)' \
-		build-vm
+	nixos-rebuild --flake '.#$(host)' build-vm
 	./result/bin/run-*-vm
 
 install:
-	sudo disko-install \
-		--write-efi-boot-entries \
-		--flake '.#$(host)' \
-		--disk main '${disk}'
+	sudo disko-install --write-efi-boot-entries --flake '.#$(host)' --disk main '${disk}'
 
 clean:
 	rm -f result result-*
