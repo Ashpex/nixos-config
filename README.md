@@ -21,15 +21,18 @@ nixos-config/
 ## Commands
 
 ```bash
-make              # Update dotfiles + rebuild (default)
-make apply        # Same as above
-make build        # Rebuild without updating dotfiles
-make test         # Build and run VM for testing
-make diff         # Show closure diff before applying
+# System
+make              # Rebuild system (default)
 make update       # Update all flake inputs
-make update-dotfiles  # Update only dotfiles input
+make diff         # Show closure diff before applying
+make test         # Build and run VM for testing
 make install host=<host> disk=<disk>  # Fresh install via disko
 make clean        # Garbage collect
+
+# Dotfiles
+make dotfiles-update                              # Update dotfiles flake input
+make dotfiles-detach file=~/.config/hypr/hyprland.conf  # Detach symlink for quick editing
+make dotfiles-restore file=~/.config/hypr/hyprland.conf # Copy edited file back to dotfiles repo
 ```
 
 All commands accept `host=<name>` (default: `t480`).
