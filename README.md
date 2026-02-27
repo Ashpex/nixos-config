@@ -8,14 +8,17 @@ My NixOS configuration using flakes, home-manager, disko, and nixos-hardware.
 nixos-config/
 ├── flake.nix             # Flake inputs & host definitions
 ├── configuration.nix     # Base config applied to all hosts
+├── gui.nix               # GUI config (graphical hosts only)
 ├── de/                   # Desktop environment modules
 │   ├── cinnamon.nix
-│   └── hyprland.nix
+│   ├── hyprland.nix
+│   └── niri.nix
 ├── hosts/                # Host-specific configs
 │   ├── t480/
 │   ├── desktop/
 │   └── server/
-└── users/ashpex/         # User + home-manager config
+├── users/ashpex/         # User + home-manager config
+└── scripts/              # Workflow scripts
 ```
 
 ## Commands
@@ -42,7 +45,7 @@ All commands accept `host=<name>` (default: `t480`).
 | Host      | Hardware                     | DE        |
 |-----------|------------------------------|-----------|
 | t480      | ThinkPad T480                | Cinnamon  |
-| desktop   | i5-13600KF + RX 6700 XT      | Hyprland  |
+| desktop   | i5-13600KF + RX 6700 XT      | Niri      |
 | server    | —                            | headless  |
 
 ## Install
