@@ -26,6 +26,4 @@
     };
   };
 
-  # No audio needed on server
-  services.pipewire.enable = lib.mkForce false;
 }

@@ -16,10 +16,6 @@
 
   hardware = {
     enableAllHardware = true;
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
   };
 
   networking = {
@@ -82,7 +78,6 @@
       gh
       gnumake
       btop
-      kitty
       tree
       unzip
       wget
@@ -90,13 +85,6 @@
   };
 
   programs = {
-    firefox = {
-      enable = true;
-      policies = {
-        DisableTelemetry = true;
-        DisablePocket = true;
-      };
-    };
     git = {
       enable = true;
     };
@@ -112,38 +100,7 @@
   };
 
   services = {
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse = {
-        enable = true;
-      };
-    };
-    printing = {
-      enable = true;
-    };
     tailscale = {
-      enable = true;
-    };
-  };
-
-  fonts = {
-    packages = with pkgs; [
-      fira
-      nerd-fonts.jetbrains-mono
-      noto-fonts
-      noto-fonts-cjk-sans
-    ];
-  };
-
-  security = {
-    polkit = {
-      enable = true;
-    };
-    rtkit = {
       enable = true;
     };
   };

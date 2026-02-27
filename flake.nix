@@ -51,6 +51,7 @@
       t480 = nixpkgs.lib.nixosSystem {
         modules = baseModules ++ [
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
+          ./gui.nix
           ./de/cinnamon.nix
           ./hosts/t480
         ];
@@ -61,6 +62,7 @@
         modules = baseModules ++ [
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-gpu-amd
+          ./gui.nix
           ./de/niri.nix
           ./hosts/desktop
         ];
