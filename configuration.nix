@@ -85,9 +85,10 @@
       wget
     ];
 
-    # Force Qt apps to use Wayland
+    # Force Qt apps to use Wayland, set DISPLAY for XWayland apps
     sessionVariables = {
       QT_QPA_PLATFORM = "wayland";
+      DISPLAY = ":1";  # XWayland display from xwayland-satellite
     };
   };
 
