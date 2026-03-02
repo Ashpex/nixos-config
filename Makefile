@@ -3,6 +3,7 @@
 
 # Default host is t480
 host ?= t480
+disk ?= /dev/nvme0n1
 
 default: build
 
