@@ -23,19 +23,11 @@
               };
             };
             root = {
-              size = "150G";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
-              };
-            };
-            home = {
               size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/home";
+                mountpoint = "/";
               };
             };
           };
