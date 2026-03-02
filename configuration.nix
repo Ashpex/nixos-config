@@ -7,12 +7,7 @@
       systemd-boot = {
         enable = true;
         configurationLimit = 5;
-        extraEntries = {
-          "windows.conf" = ''
-            title Windows
-            efi /EFI/Microsoft/Boot/bootmgfw.efi
-          '';
-        };
+        timeout = 5;
       };
       efi = {
         canTouchEfiVariables = true;
@@ -79,6 +74,7 @@
   environment = {
     systemPackages = with pkgs; [
       curl
+      efibootmgr
       fastfetch
       file
       gh
