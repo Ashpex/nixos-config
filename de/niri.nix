@@ -36,7 +36,25 @@
       brightnessctl              # Brightness control (used by niri keybinds)
       playerctl                  # Media player control (used by niri keybinds)
       pavucontrol                # Audio device management
+      pcmanfm                    # File manager
+      xwayland                   # X11 compatibility layer (for Discord, etc.)
     ];
+  };
+
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config = {
+        common = {
+          default = [ "gtk" ];
+        };
+        niri = {
+          default = [ "wlr" "gtk" ];
+        };
+      };
+    };
   };
 
   home-manager = {

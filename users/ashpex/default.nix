@@ -5,9 +5,12 @@
     isNormalUser = true;
     description = "Ashpex";
     extraGroups = [
-      "docker"       # For Docker access
+      "audio"        # Audio devices
+      "docker"       # Docker access
+      "input"        # Input devices (gaming peripherals, etc.)
       "networkmanager"
-      "wheel"        # For sudo
+      "video"        # GPU/video acceleration
+      "wheel"        # Sudo access
     ];
     shell = pkgs.zsh;
     initialPassword = "changeme"; # Change with `passwd` after first login
@@ -57,6 +60,14 @@
             name = "Ashpex";
             email = "ashpex@pm.me";
           };
+        };
+      };
+
+      programs.gh = {
+        enable = true;
+        gitCredentialHelper.enable = true;  # Use gh as git credential helper
+        settings = {
+          git_protocol = "https";
         };
       };
 

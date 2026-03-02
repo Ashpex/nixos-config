@@ -7,6 +7,12 @@
       systemd-boot = {
         enable = true;
         configurationLimit = 5;
+        extraEntries = {
+          "windows.conf" = ''
+            title Windows
+            efi /EFI/Microsoft/Boot/bootmgfw.efi
+          '';
+        };
       };
       efi = {
         canTouchEfiVariables = true;
