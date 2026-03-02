@@ -7,8 +7,8 @@
       systemd-boot = {
         enable = true;
         configurationLimit = 5;
-        timeout = 5;
       };
+      timeout = 5;
       efi = {
         canTouchEfiVariables = true;
       };
