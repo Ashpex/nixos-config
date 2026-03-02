@@ -37,7 +37,7 @@
       playerctl                  # Media player control (used by niri keybinds)
       pavucontrol                # Audio device management
       pcmanfm                    # File manager
-      xwayland                   # X11 compatibility layer (for Discord, etc.)
+      xwayland-satellite         # XWayland support for niri (for Discord, etc.)
     ];
   };
 

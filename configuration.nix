@@ -84,6 +84,11 @@
       unzip
       wget
     ];
+
+    # Force Qt apps to use Wayland
+    sessionVariables = {
+      QT_QPA_PLATFORM = "wayland";
+    };
   };
 
   programs = {
