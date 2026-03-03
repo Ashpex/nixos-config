@@ -5,12 +5,12 @@
     isNormalUser = true;
     description = "Ashpex";
     extraGroups = [
-      "audio"        # Audio devices
-      "docker"       # Docker access
-      "input"        # Input devices (gaming peripherals, etc.)
+      "audio" # Audio devices
+      "docker" # Docker access
+      "input" # Input devices (gaming peripherals, etc.)
       "networkmanager"
-      "video"        # GPU/video acceleration
-      "wheel"        # Sudo access
+      "video" # GPU/video acceleration
+      "wheel" # Sudo access
     ];
     shell = pkgs.zsh;
     initialPassword = "changeme"; # Change with `passwd` after first login
@@ -18,19 +18,21 @@
       brave
       claude-code
       vscode-fhs
-      deadnix         # Nix dead code finder (used by nvim)
+      deadnix # Nix dead code finder (used by nvim)
       discord
-      feishin         # Music streaming client
-      gopls           # Go LSP
-      jq              # JSON processor
+      feishin # Music streaming client
+      go # Go programming language
+      gopls # Go LSP
+      jq # JSON processor
       keepassxc
       megasync
-      nil             # Nix LSP
-      nixpkgs-fmt     # Nix formatter (used by nil)
+      nil # Nix LSP
+      nixpkgs-fmt # Nix formatter (used by nil)
       obsidian
-      rust-analyzer   # Rust LSP
+      rustup # Rust toolchain installer
+      rust-analyzer # Rust LSP
       thunderbird-bin
-      yq              # YAML processor
+      yq # YAML processor
     ];
   };
 
@@ -72,7 +74,7 @@
 
       programs.gh = {
         enable = true;
-        gitCredentialHelper.enable = true;  # Use gh as git credential helper
+        gitCredentialHelper.enable = true; # Use gh as git credential helper
         settings = {
           git_protocol = "https";
         };
