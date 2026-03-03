@@ -26,7 +26,6 @@
     };
 
     home.file = {
-      # Active configs (Niri + Noctalia Shell)
       ".config/kitty/kitty.conf" = {
         source = "${dotfiles}/.config/kitty/kitty.conf";
         force = true;
@@ -39,41 +38,6 @@
         source = "${dotfiles}/.config/nvim";
         force = true;
       };
-      "wallpapers" = {
-        source = "${dotfiles}/wallpapers";
-        force = true;
-      };
-
-      # Hyprland configs 
-      # ".config/hypr/hypridle.conf" = {
-      #   source = "${dotfiles}/.config/hypr/hypridle.conf";
-      #   force = true;
-      # };
-      # ".config/hypr/hyprland.conf" = {
-      #   source = "${dotfiles}/.config/hypr/hyprland.conf";
-      #   force = true;
-      # };
-      # ".config/hypr/hyprlock.conf" = {
-      #   source = "${dotfiles}/.config/hypr/hyprlock.conf";
-      #   force = true;
-      # };
-      # ".config/mako" = {
-      #   source = "${dotfiles}/.config/mako";
-      #   force = true;
-      # };
-      # ".config/rofi" = {
-      #   source = "${dotfiles}/.config/rofi";
-      #   force = true;
-      # };
-      # ".config/waybar" = {
-      #   source = "${dotfiles}/.config/waybar";
-      #   force = true;
-      # };
-      # ".config/wlogout" = {
-      #   source = "${dotfiles}/.config/wlogout";
-      #   force = true;
-      # };
-
     };
   };
 }
