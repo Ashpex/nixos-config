@@ -25,6 +25,7 @@
       nixpkgs-fmt     # Nix formatter (used by nil)
       obsidian
       rust-analyzer   # Rust LSP
+      thunderbird-bin
     ];
   };
 
