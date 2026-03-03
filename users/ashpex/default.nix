@@ -20,6 +20,7 @@
       vscode-fhs
       deadnix         # Nix dead code finder (used by nvim)
       discord
+      feishin         # Music streaming client
       gopls           # Go LSP
       jq              # JSON processor
       keepassxc
