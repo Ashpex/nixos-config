@@ -17,6 +17,7 @@
     packages = with pkgs; [
       brave
       claude-code
+      vscode-fhs
       discord
       gopls           # Go LSP
       jq              # JSON processor
