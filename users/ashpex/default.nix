@@ -18,6 +18,7 @@
       brave
       claude-code
       vscode-fhs
+      deadnix         # Nix dead code finder (used by nvim)
       discord
       gopls           # Go LSP
       jq              # JSON processor
