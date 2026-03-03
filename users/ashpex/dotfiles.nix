@@ -36,6 +36,7 @@
       };
       ".config/nvim" = {
         source = "${dotfiles}/.config/nvim";
+        recursive = true;
         force = true;
       };
     };
