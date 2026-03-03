@@ -19,6 +19,7 @@
       claude-code
       discord
       gopls           # Go LSP
+      jq              # JSON processor
       keepassxc
       megasync
       nil             # Nix LSP
@@ -26,6 +27,7 @@
       obsidian
       rust-analyzer   # Rust LSP
       thunderbird-bin
+      yq              # YAML processor
     ];
   };
 
@@ -70,11 +72,6 @@
         settings = {
           git_protocol = "https";
         };
-      };
-
-      gtk.font = {
-        name = "Fira Sans";
-        size = 11;
       };
 
       programs.mpv.enable = true;

@@ -52,29 +52,4 @@
   # Waybar (config managed in dotfiles)
   home-manager.users.ashpex.programs.waybar.enable = true;
 
-  # GTK theme for Hyprland
-  home-manager.users.ashpex = {
-    home.pointerCursor = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 24;
-      gtk.enable = true;
-    };
-    gtk = {
-      enable = true;
-      theme = {
-        name = "Colloid-Green-Dark-Catppuccin";
-        package = pkgs.colloid-gtk-theme.override {
-          colorVariants = [ "dark" ];
-          themeVariants = [ "green" ];
-          tweaks = [ "catppuccin" ];
-        };
-      };
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
-      };
-    };
-  };
-
 }

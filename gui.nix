@@ -58,4 +58,32 @@
       enable = true;
     };
   };
+
+  home-manager.users.ashpex = {
+    home.pointerCursor = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+      gtk.enable = true;
+    };
+    gtk = {
+      enable = true;
+      font = {
+        name = "Fira Sans";
+        size = 11;
+      };
+      theme = {
+        name = "Colloid-Green-Dark-Catppuccin";
+        package = pkgs.colloid-gtk-theme.override {
+          colorVariants = [ "dark" ];
+          themeVariants = [ "green" ];
+          tweaks = [ "catppuccin" ];
+        };
+      };
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
+      };
+    };
+  };
 }
