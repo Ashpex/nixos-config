@@ -55,6 +55,7 @@
         fcitx5.addons = with pkgs; [
           fcitx5-bamboo
         ];
+        fcitx5.waylandFrontend = true;
       };
 
       programs.git = {

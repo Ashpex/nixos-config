@@ -34,6 +34,7 @@
       unstable.noctalia-shell    # Desktop shell (Quickshell-based)
       wl-clipboard               # Clipboard
       brightnessctl              # Brightness control (used by niri keybinds)
+      ddcutil                    # DDC/CI monitor control for external displays
       playerctl                  # Media player control (used by niri keybinds)
       pavucontrol                # Audio device management
       pcmanfm                    # File manager
