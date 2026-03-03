@@ -27,7 +27,7 @@
         "narHash": "sha256-1yZMP9oeWFZpWchwkV9si4rebqwZMF4CBaF2UBWTuRQ=",
         "owner": "Ashpex",
         "repo": "nixos-dotfiles",
-        "rev": "71eae0d5681f47c27e48238ccaebb64bf18b0366",
+        "rev": "bd3067915a689f4ee8ea0f192e4dd154b92a39e1",
         "type": "github"
       },
       "original": {
