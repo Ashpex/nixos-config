@@ -23,6 +23,10 @@
         theme = "robbyrussell";
         plugins = [ "git" "sudo" "dirhistory" ];
       };
+      initExtra = ''
+        export PATH="$HOME/.cargo/bin:$PATH"
+        export PATH="$HOME/go/bin:$PATH"
+      '';
     };
 
     home.file = {

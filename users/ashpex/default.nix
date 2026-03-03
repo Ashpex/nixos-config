@@ -21,18 +21,17 @@
       deadnix # Nix dead code finder (used by nvim)
       discord
       feishin # Music streaming client
-      go # Go programming language
-      gopls # Go LSP
-      jq # JSON processor
+      go
+      jq
       keepassxc
       megasync
       nil # Nix LSP
       nixpkgs-fmt # Nix formatter (used by nil)
       obsidian
       rustup # Rust toolchain installer
-      rust-analyzer # Rust LSP
       thunderbird-bin
-      yq # YAML processor
+      yq
+      gcc
     ];
   };
 
