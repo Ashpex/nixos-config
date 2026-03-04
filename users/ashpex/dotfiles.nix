@@ -38,11 +38,7 @@
         source = "${dotfiles}/.config/niri/config.kdl";
         force = true;
       };
-      ".config/nvim" = {
-        source = "${dotfiles}/.config/nvim";
-        recursive = true;
-        force = true;
-      };
+      # nvim is now self-managed in ~/.config/nvim (not controlled by home-manager)
     };
   };
 }
