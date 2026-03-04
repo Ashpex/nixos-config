@@ -33,6 +33,7 @@
     systemPackages = with pkgs; [
       unstable.noctalia-shell    # Desktop shell (Quickshell-based)
       wl-clipboard               # Clipboard
+      wf-recorder                # Screen recorder for Wayland
       brightnessctl              # Brightness control (used by niri keybinds)
       ddcutil                    # DDC/CI monitor control for external displays
       playerctl                  # Media player control (used by niri keybinds)
