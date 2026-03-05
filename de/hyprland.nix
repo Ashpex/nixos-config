@@ -41,8 +41,6 @@
       brightnessctl   # Brightness control
       playerctl       # Media player control
       pavucontrol     # Audio control GUI
-      networkmanagerapplet # Network tray icon
-      hyprpolkitagent # Polkit authentication agent
       imv             # Image viewer
       xarchiver       # Archive manager
       wf-recorder     # Screen recorder for Wayland

@@ -30,6 +30,7 @@
       obsidian
       rustup # Rust toolchain installer
       thunderbird-bin
+      yazi # Terminal file manager
       yq
       gcc
     ];

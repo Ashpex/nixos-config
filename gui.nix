@@ -60,6 +60,8 @@
   };
 
   home-manager.users.ashpex = {
+    fonts.fontconfig.enable = true;
+
     home.pointerCursor = {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
@@ -79,6 +81,11 @@
       iconTheme = {
         name = "Papirus-Dark";
         package = pkgs.papirus-icon-theme;
+      };
+    };
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-light";
       };
     };
   };
