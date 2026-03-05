@@ -73,12 +73,8 @@
         size = 11;
       };
       theme = {
-        name = "Colloid-Green-Dark-Catppuccin";
-        package = pkgs.colloid-gtk-theme.override {
-          colorVariants = [ "dark" ];
-          themeVariants = [ "green" ];
-          tweaks = [ "catppuccin" ];
-        };
+        name = "Yaru-sage-dark";
+        package = pkgs.yaru-theme;
       };
       iconTheme = {
         name = "Papirus-Dark";

@@ -76,6 +76,7 @@
                   ExecStart = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell";
                   Restart = "on-failure";
                   RestartSec = 2;
+                  Environment = "QS_ICON_THEME=Papirus-Dark";
                 };
                 Install = {
                   WantedBy = [ "graphical-session.target" ];
