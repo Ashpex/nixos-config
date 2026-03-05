@@ -43,7 +43,7 @@
       pavucontrol     # Audio control GUI
       imv             # Image viewer
       xarchiver       # Archive manager
-      wf-recorder     # Screen recorder for Wayland
+      gpu-screen-recorder # Screen recorder for Wayland with GPU acceleration
       ddcutil         # DDC/CI monitor control for external displays
     ];
   };
