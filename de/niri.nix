@@ -40,6 +40,8 @@
       pavucontrol                # Audio device management
       pcmanfm                    # File manager
       xwayland-satellite         # XWayland support for niri (for Discord, etc.)
+      imv                        # Image viewer
+      xarchiver                  # Archive manager
     ];
   };
 
