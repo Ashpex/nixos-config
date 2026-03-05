@@ -73,7 +73,7 @@
         size = 11;
       };
       theme = {
-        name = "Yaru-sage-dark";
+        name = "Yaru-sage";
         package = pkgs.yaru-theme;
       };
       iconTheme = {
