@@ -20,7 +20,7 @@
       vscode-fhs
       deadnix # Nix dead code finder (used by nvim)
       discord
-      feishin # Music streaming client
+      unstable.jellyfin-tui # Music streaming client (using unstable for latest features)
       go
       jq
       keepassxc
