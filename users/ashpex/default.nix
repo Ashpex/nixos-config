@@ -15,6 +15,8 @@
     shell = pkgs.zsh;
     initialPassword = "changeme"; # Change with `passwd` after first login
     packages = with pkgs; [
+      kubectl
+      k9s
       brave
       claude-code
       vscode-fhs
