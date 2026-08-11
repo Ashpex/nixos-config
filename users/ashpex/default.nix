@@ -15,6 +15,7 @@
     shell = pkgs.zsh;
     initialPassword = "changeme"; # Change with `passwd` after first login
     packages = with pkgs; [
+      ansible
       kubectl
       k9s
       brave
