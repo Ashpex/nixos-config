@@ -11,12 +11,10 @@ nixos-config/
 ├── gui.nix               # GUI config (graphical hosts only)
 ├── de/                   # Desktop environment modules
 │   ├── cinnamon.nix
-│   ├── hyprland.nix
 │   └── niri.nix
 ├── hosts/                # Host-specific configs
 │   ├── t480/
-│   ├── desktop/
-│   └── server/
+│   └── desktop/
 ├── users/ashpex/         # User + home-manager config
 └── scripts/              # Workflow scripts
 ```
@@ -34,11 +32,11 @@ make clean        # Garbage collect
 
 # Dotfiles
 make dotfiles-update                              # Update dotfiles flake input
-make dotfiles-detach file=~/.config/hypr/hyprland.conf  # Detach symlink for quick editing
-make dotfiles-restore file=~/.config/hypr/hyprland.conf # Copy edited file back to dotfiles repo
+make dotfiles-detach file=~/.config/niri/config.kdl   # Detach symlink for quick editing
+make dotfiles-restore file=~/.config/niri/config.kdl  # Copy edited file back to dotfiles repo
 ```
 
-All commands accept `host=<name>` (default: `t480`).
+All commands accept `host=<name>` (default: `desktop`).
 
 ## Hosts
 
@@ -46,7 +44,6 @@ All commands accept `host=<name>` (default: `t480`).
 |-----------|------------------------------|-----------|
 | t480      | ThinkPad T480                | Cinnamon  |
 | desktop   | i5-13600KF + RX 6700 XT      | Niri      |
-| server    | —                            | headless  |
 
 ## Install
 
@@ -54,5 +51,5 @@ All commands accept `host=<name>` (default: `t480`).
 nix-shell -p git gnumake disko
 git clone https://github.com/Ashpex/nixos-config
 cd nixos-config
-make install host=t480 disk=/dev/nvme0n1
+make install host=desktop disk=/dev/nvme0n1
 ```

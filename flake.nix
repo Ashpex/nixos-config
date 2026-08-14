@@ -68,12 +68,6 @@
         ];
       };
 
-      # Server
-      server = nixpkgs.lib.nixosSystem {
-        modules = baseModules ++ [
-          ./hosts/server
-        ];
-      };
     };
   };
 }

@@ -1,8 +1,7 @@
 .POSIX:
 .PHONY: default build update dotfiles-update diff test install clean dotfiles-detach dotfiles-restore
 
-# Default host is t480
-host ?= desktop 
+host ?= desktop
 disk ?= /dev/nvme0n1
 
 default: build
