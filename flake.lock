@@ -23,11 +23,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1772722790,
-        "narHash": "sha256-yiN5waQo8rlPHfoSD7BBTcowoQT9X85ISYseEy26Uqk=",
+        "lastModified": 1786708820,
+        "narHash": "sha256-yUseZMZOTLGDSWfC/0sMElMjHJzwznsyvwj3xA/STGQ=",
         "owner": "Ashpex",
         "repo": "nixos-dotfiles",
-        "rev": "159e7029b512902544583bee24fb830397c645fc",
+        "rev": "d2f82e474c9d5b1cfc4435cfb47e916cb6ce9be8",
         "type": "github"
       },
       "original": {
