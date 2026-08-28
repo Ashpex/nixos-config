@@ -20,10 +20,10 @@
       k9s
       brave
       claude-code
+      codex
       vscode-fhs
       deadnix # Nix dead code finder (used by nvim)
       discord
-      unstable.jellyfin-tui # Music streaming client (using unstable for latest features)
       go
       jq
       keepassxc
@@ -54,7 +54,6 @@
       programs.home-manager.enable = true;
 
       # Dotfiles are managed in users/ashpex/dotfiles.nix
-      # See README.md "Dotfiles Management" section for details
 
       i18n.inputMethod = {
         enable = true;
