@@ -83,6 +83,7 @@
       tree
       unzip
       wget
+      smartmontools
     ];
 
     # Force Qt apps to use Wayland, set DISPLAY for XWayland apps
