@@ -116,7 +116,7 @@
 
   # This value determines the NixOS release
   system = {
-    stateVersion = "25.11";
+    stateVersion = "26.05";
   };
 
   # Enable Docker (but don't start on boot) and VM testing variant

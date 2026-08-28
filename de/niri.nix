@@ -54,9 +54,6 @@
         common = {
           default = [ "gtk" ];
         };
-        niri = {
-          default = [ "wlr" "gtk" ];
-        };
       };
     };
   };

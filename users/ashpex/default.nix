@@ -36,6 +36,7 @@
       yazi # Terminal file manager
       yq
       gcc
+      zoho-mail-desktop
     ];
   };
 
@@ -45,7 +46,7 @@
     backupFileExtension = "backup";
     users.ashpex = {
       home = {
-        stateVersion = "25.11";
+        stateVersion = "26.05";
         username = "ashpex";
         homeDirectory = "/home/ashpex";
       };

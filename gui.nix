@@ -72,7 +72,7 @@
       enable = true;
       font = {
         name = "Fira Sans";
-        size = 11;
+        size = 12;
       };
       theme = {
         name = "Yaru-sage";
